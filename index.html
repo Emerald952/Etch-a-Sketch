@@ -9,16 +9,32 @@
     <script src="scripts.js" defer></script>
 </head>
 <body>
-    <h1>Etch-a-Sketch</h1>
+    <h1>Pixel Art</h1>
     <div id = "container">
-        <div id = "buttons">
-            <div id="erase-btn">
-                <button id = "eraser" class="pixbtns"></button>
+        <div id = "select-menu">
+            <div id="color-picker">
+                <label for="color">Pick Color:</label>
+                <input type="color" id="color" value="#000000">
             </div>
-            <div id = "draw-btns">
-                <button id = "px16" class="pixbtns"></button>
-                <button id = "px24" class="pixbtns"></button>
-                <button id = "px32" class="pixbtns"></button>
+            <div id="erase-btn">
+                <label>
+                    Eraser:
+                    <button id = "eraser" class="pixbtns"></button>
+                </label>
+                
+            </div>
+            <div id = "grid-size-select">
+                <label for="select-grid">Choose pixel size:</label>    
+                <select id="select-grid">
+                    <option value="16">16</option>
+                    <option value="24">24</option>
+                    <option value="32">32</option>
+                    <option value="48">48</option>
+                    <option value="64">64</option>
+                </select>   
+            </div>
+            <div id = "reset">
+                <button id="clear-all">Clear All</button>
             </div>
         </div> 
         <div id="sketchpad"></div>

@@ -3,7 +3,17 @@ let isDrawing = false;
 let pixel_color = 'black';
 
 const sketchpad = document.querySelector('#sketchpad');
-const buttons = document.querySelectorAll('.pixbtns');
+const gridSelect = document.querySelector('#select-grid');
+const color = document.querySelector('#color');
+const eraser = document.querySelector("#eraser");
+
+color.addEventListener('input', (e) => {
+    pixel_color = e.target.value;
+});
+
+eraser.addEventListener("click", () => {
+    pixel_color = 'white';
+});
 
 sketchpad.addEventListener("mousedown", ()=>{
     isDrawing = true;
@@ -15,31 +25,15 @@ sketchpad.addEventListener("mouseleave", ()=>{
     isDrawing = false;
 });
 
-buttons.forEach(button =>{
-    button.addEventListener("click", ()=>{
-        if(button.id === 'eraser'){
-            pixel_color = 'white';
-        }else if(button.id.startsWith('px')){
-            let newGridSize = 0;
-            pixel_color='black';
-            if(button.id == 'px16'){
-                newGridSize  = 16;
-            }
-            else if(button.id == 'px24'){
-                newGridSize = 24;
-            }
-            else if(button.id == 'px32'){
-                newGridSize = 32;
-            }
-
-            if(newGridSize != currGridSize){
-                createGrids(newGridSize);
-                currGridSize = newGridSize;
-            }
-        }
+gridSelect.addEventListener('change', (e)=>{
+    const newGridSize = parseInt(e.target.value);
+    if(newGridSize != currGridSize){
+        pixel_color = color.value;
+        currGridSize = newGridSize;
+        createGrids(currGridSize);
+    }
+});
         
-    });
-})
 function createGrids(gridSize){
     sketchpad.innerHTML = '';
     const totalPixel = gridSize*gridSize;
@@ -65,4 +59,7 @@ function createGrids(gridSize){
     }
 }
 
+document.querySelector('#clear-all').addEventListener('click', () => {
+    createGrids(currGridSize);
+});
 createGrids(16);
