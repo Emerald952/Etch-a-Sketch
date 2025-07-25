@@ -11,21 +11,22 @@
 <body>
     <h1>Pixel Art</h1>
     <div id = "container">
-        <div id = "select-menu">
-            <div id="color-picker">
-                <label for="color">Pick Color:</label>
-                <input type="color" id="color" value="#000000">
-            </div>
-            <div id="erase-btn">
-                <label>
-                    Eraser:
-                    <button id = "eraser" class="pixbtns"></button>
+        <div id = "selectMenu">
+            <div id="setColor">
+                <label>Pen Color:
+                    <input type="color" id="penColor" value="#000000">
                 </label>
                 
+                <label>Background Color:
+                    <input type="color" id = "gridColor" value ="#ffffff">
+                </label> 
             </div>
-            <div id = "grid-size-select">
-                <label for="select-grid">Choose pixel size:</label>    
-                <select id="select-grid">
+            <div id="eraseBtn">
+                <button id = "eraser" class="pixBtns">Eraser</button>   
+            </div>
+            <div id = "gridSizeSelect">
+                <label for="selectGrid">Choose pixel size:</label>    
+                <select id="selectGrid">
                     <option value="16">16</option>
                     <option value="24">24</option>
                     <option value="32">32</option>
@@ -33,11 +34,17 @@
                     <option value="64">64</option>
                 </select>   
             </div>
+            <div id ="shading">
+                <button id= "shadingPen">Shading</button>
+            </div>
+            <div id = "rainbow">
+                <button id = "rainbowPen">Rainbow Pen</butoon>
+            </div>
             <div id = "reset">
-                <button id="clear-all">Clear All</button>
+                <button id="clearAll">Clear All</button>
             </div>
         </div> 
-        <div id="sketchpad"></div>
+        <div id="sketchPad"></div>
     </div>
     
 </body>
